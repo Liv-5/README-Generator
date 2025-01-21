@@ -1,0 +1,24 @@
+{
+  "name": "readme-generator",
+  "version": "1.0.0",
+  "description": "Create a README.md file with ease and expedite your work by using this code to generate your README files. .",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Liv-5/README-Generator.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Liv-5/README-Generator/issues"
+  },
+  "homepage": "https://github.com/Liv-5/README-Generator#readme",
+  "dependencies": {
+    "inquirer": "^12.3.2"
+  }
+}
