@@ -11,10 +11,9 @@ const generateRM = ({
   screenshot,
   credits,
   license,
-  badge,
-  features,
   contribute,
   test,
+  email,
   github,
 }) => {
   return `# ${title}
@@ -30,8 +29,8 @@ const generateRM = ({
   - [Usage](#usage)
   - [Credits](#credits)
   - [License](#license)
-  - [How to Contribute](#How to Contribute)
-  - [Test Instructions](#Test Instructions)
+  - [How to Contribute](#how-to-contribute)
+  - [Test Instructions](#test-instructions)
   - [Questions](#questions)
 
   
@@ -58,13 +57,13 @@ const generateRM = ({
   ${contribute}
   
   
-  ## Test Instructions
+  ## Test
   
   ${test}
   
   
   ## Questions
-  If you have any questions regarding this project you can email me at (email) or go to my [GitHuB](${github})
+  If you have any questions regarding this project you can email me at (email)${email} or go to my [GitHuB](${github})
   
   `;
 };
@@ -107,12 +106,17 @@ inquirer
       choices: [
         "MIT License",
         "Apache License v2.0",
-        "GNU General Public License v3.0 (GPL)",
-        "Creative Commons Attribution-NonCommercial-ShareAlike (CC-BY-NC-SA)",
-        "Creative Commons 0 (CC0)",
-        "Academic Free License v3.0 (AFL-3.0)",
-        "Artistic license 2.0",
-        "Boost Software License 1.0 (BSL-1.0)",
+        "GNU General Public License v3.0 ",
+        "Boost Software License 1.0",
+        "BSD 2-Clause 'Simplified' License",
+        "BSD 3-Clause 'New' or 'Revised' License",
+        "Eclipse Public License 2.0",
+        "The Unilicense",
+        "Mozilla Public License 2.0",
+        "GNU Affero General Public License v3.0",
+        "GNU General Public License v2.0",
+        "GNU Lesser General Public License v2.1",
+        "None",
       ],
     },
     {
@@ -127,8 +131,13 @@ inquirer
     },
     {
       type: "input",
+      name: "email",
+      message: "Please enter your email",
+    },
+    {
+      type: "input",
       name: "github",
-      message: "Add your github link",
+      message: "Add your github link/url",
     },
   ])
   .then((answers) => {
@@ -143,24 +152,52 @@ inquirer
 
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
-function renderLicenseBadge(badge) {
-  if (badge === "MIT") {
-    return "![Badge: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)";
-  } else if (badge === "Apache-2.0") {
-    return "![Badge](https://img.shields.io/badge/License-Apache%202.0-blue.svg)";
-  } else if (badge === "BSL-1.0") {
+function renderLicenseBadge(license) {
+  if (license === "MIT License") {
+    return "![Badge: MIT](https://img.shields.io/badge/License-MIT-blue.svg)";
+  } else if (license === "Apache License v2.0") {
+    return "![Badge](https://img.shields.io/badge/License-Apache%202.0-green.svg)";
+  } else if (license === "Boost Software License 1.0") {
     return "![Badge](https://img.shields.io/badge/License-Boost%201.0-lightblue.svg)";
-  } else if (badge === "0BSD") {
-    return "![Badge](https://img.shields.io/badge/License-0BSD-blue.svg)";
-  } else {
-    return "";
-  }
+  } else if (license === "GNU General Public License v3.0") {
+    return "![Badge](https://img.shields.io/badge/License-GPL3.0-blue.svg)";
+  } else if (license === "BSD 2-Clause 'Simplified' License") {
+    return "![Badge](https://img.shields.io/badge/License-BSD2Simplified-orange.svg)";
+  } else if (license === "BSD 3-Clause 'New' or 'Revised' License") {
+    return "![Badge](https://img.shields.io/badge/License-BSD3-yellow.svg)";
+  } else if (license === "Eclipse Public License 2.0") {
+    return "![Badge](https://img.shields.io/badge/License-Eclipse-navy.svg)";
+  } else if (license === "The Unilicense") {
+    return "![Badge](https://img.shields.io/badge/License-Unilicense-purple.svg)";
+  } else if (license === "Mozilla Public License 2.0") {
+    return "![Badge](https://img.shields.io/badge/License-Mozilla-darkred.svg)";
+  } else if (license === "GNU Affero General Public License v3.0") {
+    return "![Badge](https://img.shields.io/badge/License-AfferoGPL-darkgreen.svg)";
+  } else if (license === "GNU General Public License v2.0") {
+    return "![Badge](https://img.shields.io/badge/License-GPL2.0-white.svg)";
+  } else if (license === "GNU Lesser General Public License v2.1") {
+    return "![Badge](https://img.shields.io/badge/License-LesserGPL2.1-pink.svg)";
+  } else return "";
 }
+
+// "MIT License",
+// "Apache License v2.0",
+// "GNU General Public License v3.0 ",
+// "Boost Software License 1.0",
+// "BSD 2-Clause 'Simplified' License",
+// "BSD 3-Clause 'New' or 'Revised' License",
+// "Eclipse Public License 2.0",
+// "The Unilicense",
+// "Mozilla Public License 2.0",
+// "GNU Affero General Public License v3.0",
+// "GNU General Public License v2.0",
+// "GNU Lesser General Public License v2.1",
+// "None",
 
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
 function renderLicenseLink(license) {
-  if (license === "MIT") {
+  if (license === "MIT License") {
     return "[MIT](https://opensource.org/licenses/MIT)";
   } else if (license === "Apache-2.0") {
     return "[Apache-2.0](https://opensource.org/licenses/Apache-2.0)";
