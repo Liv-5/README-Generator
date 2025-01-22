@@ -6,7 +6,7 @@ Create a README.md file with ease and expedite your work by using this code to g
 
 ## Github Repository
 
-[GitHub Repository]()
+[GitHub Repository](https://github.com/Liv-5/README-Generator)
 
 ## Video walk-through
 
@@ -14,12 +14,8 @@ Create a README.md file with ease and expedite your work by using this code to g
 
 ## Preview
 
-    ```md
-    ![Command Line](./imgs/ssNodeIndexjs.PNG)
-    ```
-        ```md
-    ![Readme Preview](./imgs/ssREADME.PNG)
-    ```
-        ```md
-    ![Success](./imgs/ssSuccess.PNG)
-    ```
+![Command Line](./imgs/ssNodeIndexjs.PNG)
+
+![Success](./imgs/ssSuccess.PNG)
+
+![Readme Preview](./imgs/ssREADME.PNG)
