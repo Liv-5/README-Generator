@@ -8,7 +8,7 @@ const generateRM = ({
   title,
   description,
   install,
-  screenshot,
+  usage,
   credits,
   license,
   contribute,
@@ -41,8 +41,8 @@ const generateRM = ({
   
   ## Usage
   
-  ${screenshot}
-  
+  ${usage}
+
   ## Credits
   
   ${credits}
@@ -63,7 +63,7 @@ const generateRM = ({
   
   
   ## Questions
-  If you have any questions regarding this project you can email me at (email)${email} or go to my [GitHuB](${github})
+  If you have any questions regarding this project you can email me at[${email}](mailto:${email}) or go to my [GitHuB](${github})
   
   `;
 };
@@ -90,8 +90,8 @@ inquirer
     },
     {
       type: "input",
-      name: "screenshot",
-      message: "Submit a screenshot using the file path in parentheses",
+      name: "usage",
+      message: "What does the user need to know about using this?",
     },
     {
       type: "input",
@@ -127,7 +127,7 @@ inquirer
     {
       type: "input",
       name: "test",
-      message: "How can users test this, give examples?",
+      message: "How can users test this?",
     },
     {
       type: "input",
@@ -160,23 +160,23 @@ function renderLicenseBadge(license) {
   } else if (license === "Boost Software License 1.0") {
     return "![Badge](https://img.shields.io/badge/License-Boost%201.0-lightblue.svg)";
   } else if (license === "GNU General Public License v3.0") {
-    return "![Badge](https://img.shields.io/badge/License-GPL3.0-blue.svg)";
+    return "![Badge](https://img.shields.io/badge/License-GPL_3.0-blue.svg)";
   } else if (license === "BSD 2-Clause 'Simplified' License") {
-    return "![Badge](https://img.shields.io/badge/License-BSD2Simplified-orange.svg)";
+    return "![Badge](https://img.shields.io/badge/License-BSD_2_Clause-orange.svg)";
   } else if (license === "BSD 3-Clause 'New' or 'Revised' License") {
-    return "![Badge](https://img.shields.io/badge/License-BSD3-yellow.svg)";
+    return "![Badge](https://img.shields.io/badge/License-BSD_3_Clause-yellow.svg)";
   } else if (license === "Eclipse Public License 2.0") {
-    return "![Badge](https://img.shields.io/badge/License-Eclipse-navy.svg)";
+    return "![Badge](https://img.shields.io/badge/License-EPL_2.0-navy.svg)";
   } else if (license === "The Unilicense") {
     return "![Badge](https://img.shields.io/badge/License-Unilicense-purple.svg)";
   } else if (license === "Mozilla Public License 2.0") {
-    return "![Badge](https://img.shields.io/badge/License-Mozilla-darkred.svg)";
+    return "![Badge](https://img.shields.io/badge/License-MPL_2.0-darkred.svg)";
   } else if (license === "GNU Affero General Public License v3.0") {
-    return "![Badge](https://img.shields.io/badge/License-AfferoGPL-darkgreen.svg)";
+    return "![Badge](https://img.shields.io/badge/License-AGPL_3.0-darkgreen.svg)";
   } else if (license === "GNU General Public License v2.0") {
-    return "![Badge](https://img.shields.io/badge/License-GPL2.0-white.svg)";
+    return "![Badge](https://img.shields.io/badge/License-GPL_2.0-white.svg)";
   } else if (license === "GNU Lesser General Public License v2.1") {
-    return "![Badge](https://img.shields.io/badge/License-LesserGPL2.1-pink.svg)";
+    return "![Badge](https://img.shields.io/badge/License-LGPL_2.1-pink.svg)";
   } else return "";
 }
 
@@ -201,15 +201,28 @@ function renderLicenseLink(license) {
     return "[MIT](https://opensource.org/licenses/MIT)";
   } else if (license === "Apache-2.0") {
     return "[Apache-2.0](https://opensource.org/licenses/Apache-2.0)";
-  } else if (license === "BSL-1.0") {
-    return "![license](https://opensource.org/licenses/BSL-1.0)";
-  } else if (license === "0BSD") {
-    return "![license](https://opensource.org/licenses/0BSD)";
-  } else {
-    return "";
-  }
+  } else if (license === "Boost Software License 1.0") {
+    return "![BSL-1.0](https://opensource.org/license/bsl-1-0)";
+  } else if (license === "GNU General Public License v3.0") {
+    return "![GPL-3.0](https://opensource.org/license/gpl-3-0)";
+  } else if (license === "BSD 2-Clause 'Simplified' License") {
+    return "![BSD-2-Clause](https://opensource.org/license/bsd-2-clause)";
+  } else if (license === "BSD 3-Clause 'New' or 'Revised' License") {
+    return "![BSD-3-Clause](https://opensource.org/license/bsd-3-clause)";
+  } else if (license === "Eclipse Public License 2.0") {
+    return "![EPL-2.0](https://opensource.org/license/epl-2-0)";
+  } else if (license === "The Unilicense") {
+    return "![Unlicense](https://opensource.org/license/unlicense)";
+  } else if (license === "Mozilla Public License 2.0") {
+    return "![MPL-2.0](https://opensource.org/license/mpl-2-0)";
+  } else if (license === "GNU Affero General Public License v3.0") {
+    return "![AGPL-3.0]](https://opensource.org/license/agpl-v3)";
+  } else if (license === "GNU General Public License v2.0") {
+    return "![GPL-2.0]](https://opensource.org/license/gpl-2-0)";
+  } else if (license === "GNU Lesser General Public License v2.1") {
+    return "![LGPL-2.1](https://opensource.org/license/lgpl-2-1)";
+  } else return "";
 }
-
 // TODO: Create a function that returns the license section of README
 
 // TODO: Create a function to write README file
